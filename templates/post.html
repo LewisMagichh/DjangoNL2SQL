@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>nl2sql生成系统</title>
+</head>
+<body>
+    <form action="/search-post/" method="post">
+        {% csrf_token %}
+        <p>数据库地址：<input type="text" name="db_id">
+        <p>你想说的话：<input type="text" name="question">
+        <input type="submit" value="搜索">
+    </form>
+
+    <p>{{ db_id }}</p>
+    <p>{{ raw_question }}</p>
+    <p>{{ params }}</p>
+    <p>{{ db_id_json }}<p>
+    <p>{{ question_json }}</p>
+</body>
+</html>
