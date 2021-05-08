@@ -6,7 +6,8 @@ import sys
 import json
 from .write_down import updata_json_data
 from .preproc import proprection
-
+from .InitFile import init_file
+from .getInfer import get_infer
 def search_form(request):
     return render(request, 'post.html')
 
@@ -27,17 +28,22 @@ def search(request):
 
 def search_post(request):
     ctx={}
-    input_dbid = {}
-    input_question = {}
+    init_file()
     if request.POST:
-        ctx['db_id'] = '你选择的数据库地址为' + request.POST['db_id']
-        ctx['raw_question'] = '你说的话为' + request.POST['question']
         input_dbid = request.POST['db_id']
         input_question = request.POST['question']
-        params = updata_json_data(input_dbid,input_question)
-        ctx['db_id_json'] = params[0]['db_id']
-        ctx['question_json'] = params[0]['question']
+        # params = updata_json_data(input_dbid,input_question)
+        # ctx['db_id_json'] = params[0]['db_id']
+        # ctx['question_json'] = params[0]['question']
         proprection()
-        ctx['params'] = "successed proprection"
+        ctx['params'] = get_infer()
+
     return render(request,"post.html", ctx)
 
+
+def inferlist(request):
+
+    ctx={}
+    ctx['infer'] = get_infer()
+
+    return render(request,"infer.html", ctx)

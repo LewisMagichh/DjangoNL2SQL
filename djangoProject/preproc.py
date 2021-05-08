@@ -50,7 +50,6 @@ def proprection():
     exp_config = json.loads(_jsonnet.evaluate_file(exp_config_file))
     model_config_file = exp_config["model_config"]
 
-
     model_config_args = exp_config["model_config_args"]
     model_config_args = json.dumps(model_config_args)
 

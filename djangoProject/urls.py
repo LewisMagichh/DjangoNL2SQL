@@ -22,4 +22,5 @@ urlpatterns = [
     path('search_form/',search.search_form),
     path('search/',search.search),
     path('search-post/',search.search_post),
+    path('infer/',search.inferlist)
 ]
