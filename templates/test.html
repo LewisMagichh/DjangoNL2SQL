@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NL2SQL自然语言生成系统</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Login.css' %}"/>
+</head>
+<body>
+    {% csrf_token %}
+    <div id="login">
+        <h1>NL2SQL自然语言生成系统</h1>
+        <form action="/search-post/" method="post">
+            <input id="dbid" type="text" required="required" placeholder="数据库地址" name="db_id"></input>
+            <input id="question" type="text" required="required" placeholder="你想说的话" name="question"></input>
+            <button class="but" type="submit" onclick='window.open("/infer")'>预测</button>
+        </form>
+    </div>
+</body>
+</html>

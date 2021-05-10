@@ -46,4 +46,4 @@ def inferlist(request):
     ctx={}
     ctx['infer'] = get_infer()
 
-    return render(request,"infer.html", ctx)
+    return render(request, "../templates/infer.html", ctx)
