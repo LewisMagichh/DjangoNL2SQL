@@ -11,12 +11,6 @@ body{
     margin: 0;
     background-color: #4A374A;
 }
-#login{
-    margin: -150px 0 0 -150px;
-    width: 500px;
-    height: 300px;
-}
-
 h1{
     position: absolute;
     top: 30%;
@@ -47,7 +41,6 @@ h1{
     border-radius: 4px;
     background-color: #2D2D3F;
 }
-
 #infer_two {
     position: absolute;
     top: 45%;
@@ -66,22 +59,6 @@ h1{
     border-bottom: 1px solid #56536A;
     border-radius: 4px;
     background-color: #2D2D3F;
-}
-.but{
-    position: absolute;
-    top: 50%;
-    left:45%;
-    width: 200px;
-    min-height: 20px;
-    display: block;
-    background-color: #4a77d4;
-    border: 1px solid #3762bc;
-    color: #fff;
-    padding: 9px 14px;
-    font-size: 15px;
-    line-height: normal;
-    border-radius: 5px;
-    margin: 0;
 }
 #yes{ position: absolute;
     top: 50%;
@@ -111,3 +88,19 @@ h1{
     line-height: normal;
     border-radius: 5px;
     margin: 0;}
+#back{
+    position: absolute;
+    bottom: 0;
+    right:0;
+    width: 120px;
+    min-height: 20px;
+    display: block;
+    background-color: #4a77d4;
+    border: 1px solid #3762bc;
+    color: #fff;
+    padding: 9px 14px;
+    font-size: 15px;
+    line-height: normal;
+    border-radius: 5px;
+    margin: 0;
+}

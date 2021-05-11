@@ -28,8 +28,7 @@ def search(request):
     return HttpResponse(message)
 
 def search_post(request):
-    ctx={}
-    init_file()
+
     # if request.POST:
     #     input_dbid = request.POST['db_id']
     #     input_question = request.POST['question']
@@ -44,6 +43,7 @@ def search_post(request):
 
 def inferlist(request):
     if request.POST:
+        init_file()
         input_dbid = request.POST['db_id']
         input_question = request.POST['question']
 

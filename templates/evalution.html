@@ -3,14 +3,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>后台数据统计</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/evaluation.css' %}"/>
 </head>
 <body>
 
-    <p style="color: white;text-shadow: 1px 0 10px;text-align: center" >预测准确率为：{{ Accuracy }}</p>
-    <p style="color: white;text-shadow: 1px 0 10px;text-align: center">正确SQL数量：{{ correct }}</p>
-    <p style="color: white;text-shadow: 1px 0 10px;text-align: center">错误SQL数量：{{ error }}</p>
+    <h2 id="acc" style="color: white;text-shadow: 1px 0 10px;text-align: center" >预测准确率为：{{ Accuracy }}</h2>
+    <h2 id="cor" style="color: white;text-shadow: 1px 0 10px;text-align: center">正确SQL数量：{{ correct }}</h2>
+    <h2 id="err" style="color: white;text-shadow: 1px 0 10px;text-align: center">错误SQL数量：{{ error }}</h2>
+
     <form action="/search-post/" method="get">
         <button id="back">返回预测界面</button>
     </form>
