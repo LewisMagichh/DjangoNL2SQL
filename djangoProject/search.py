@@ -10,7 +10,7 @@ from .InitFile import init_file
 from .getInfer import get_infer
 from .KVwrite import write_error,write_correct
 def search_form(request):
-    return render(request, 'test.html')
+    return render(request, 'searchpost.html')
 
 def search(request):
     request.encoding='utf-8'
@@ -39,7 +39,7 @@ def search_post(request):
     #     proprection()
     #     ctx['params'] = get_infer()
 
-    return render(request,"test.html", ctx)
+    return render(request, "searchpost.html", ctx)
 
 
 def inferlist(request):
