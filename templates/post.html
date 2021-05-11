@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,15 +6,19 @@
 <title>nl2sql生成系统</title>
 </head>
 <body>
+    <h1 style="text-align: center">nl2sql生成系统</h1>
+    <hr />
     <form action="/search-post/" method="post">
         {% csrf_token %}
-        <p>数据库地址：<input type="text" name="db_id">
-        <p>你想说的话：<input type="text" name="question">
-        <input type="submit" value="搜索">
+        数据库地址：<br>
+        <input style="text-align: center"  type="text" name="db_id">
+        <br>
+        你想说的话：<br>
+        <input style="text-align: center" type="text" name="question">
+        <br>
+        <input style="text-align: center" type="button" value="搜索">
     </form>
 
-    <p>{{ db_id_json }}<p>
-    <p>{{ question_json }}</p>
-    <p>{{ params }}</p>
+
 </body>
 </html>

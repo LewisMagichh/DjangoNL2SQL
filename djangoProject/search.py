@@ -8,8 +8,9 @@ from .write_down import updata_json_data
 from .preproc import proprection
 from .InitFile import init_file
 from .getInfer import get_infer
+from .KVwrite import write_error,write_correct
 def search_form(request):
-    return render(request, 'post.html')
+    return render(request, 'test.html')
 
 def search(request):
     request.encoding='utf-8'
@@ -29,21 +30,26 @@ def search(request):
 def search_post(request):
     ctx={}
     init_file()
-    if request.POST:
-        input_dbid = request.POST['db_id']
-        input_question = request.POST['question']
-        # params = updata_json_data(input_dbid,input_question)
-        # ctx['db_id_json'] = params[0]['db_id']
-        # ctx['question_json'] = params[0]['question']
-        proprection()
-        ctx['params'] = get_infer()
+    # if request.POST:
+    #     input_dbid = request.POST['db_id']
+    #     input_question = request.POST['question']
+    #     # params = updata_json_data(input_dbid,input_question)
+    #     # ctx['db_id_json'] = params[0]['db_id']
+    #     # ctx['question_json'] = params[0]['question']
+    #     proprection()
+    #     ctx['params'] = get_infer()
 
-    return render(request,"post.html", ctx)
+    return render(request,"test.html", ctx)
 
 
 def inferlist(request):
+    if request.POST:
+        input_dbid = request.POST['db_id']
+        input_question = request.POST['question']
 
-    ctx={}
-    ctx['infer'] = get_infer()
+        params = updata_json_data(input_dbid,input_question)
+        proprection()
 
-    return render(request, "../templates/infer.html", ctx)
+    infer = get_infer()
+
+    return render(request,"infer.html",{"inferone":infer[0],"infertwo":infer[2]})

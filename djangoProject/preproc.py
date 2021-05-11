@@ -11,13 +11,11 @@ class PreprocessConfig:
     config = attr.ib()
     config_args = attr.ib()
 
-
 @attr.s
 class TrainConfig:
     config = attr.ib()
     config_args = attr.ib()
     logdir = attr.ib()
-
 
 @attr.s
 class InferConfig:
@@ -33,7 +31,6 @@ class InferConfig:
     limit = attr.ib(default=None)
     output_history = attr.ib(default=False)
 
-
 @attr.s
 class EvalConfig:
     config = attr.ib()
@@ -42,8 +39,6 @@ class EvalConfig:
     section = attr.ib()
     inferred = attr.ib()
     output = attr.ib()
-
-
 
 def proprection():
     exp_config_file = os.path.join(BASE_DIR,'djangoProject/nltsql/experiments/spider-glove-run.jsonnet')

@@ -17,10 +17,16 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from . import search
+from . import KVwrite
+from . import Evalution
 
 urlpatterns = [
     path('search_form/',search.search_form),
     path('search/',search.search),
     path('search-post/',search.search_post),
-    path('infer/',search.inferlist)
+    path('infer/',search.inferlist),
+    path('KVwrite/writeCorrect/',KVwrite.write_correct),
+    path('KVwrite/writeError/',KVwrite.write_error),
+    path('evalution/',Evalution.evalution)
+
 ]

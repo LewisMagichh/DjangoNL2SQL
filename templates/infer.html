@@ -1,10 +1,66 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>预测结果</title>
+     <link rel="stylesheet" type="text/css" href="{% static 'css/infer.css' %}"/>
 </head>
 <body>
-    <p>aaa</p>
+    <h2 id="inferone" style="display: none">{{ inferone }}</h2>
+    <h2 id="infertwo" style="display: none">{{ infertwo }}</h2>
+    <script type="text/javascript">
+        window.onload = function (){
+            var inferone = document.getElementById("inferone").innerHTML
+            var infertwo = document.getElementById("infertwo").innerHTML
+            document.getElementById("infer_one").value = inferone
+            document.getElementById("infer_two").value = infertwo
+        }
+    </script>
+    <script src = "/static/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" >
+        var flag = 0
+        function WriteCorrect() {
+            if (flag == 1)  alert('已统计该次结果，请勿多次提交')
+            else{
+                $.ajax({
+                    url: "/KVwrite/writeCorrect",
+                    context: document.body
+                }).done(function () {
+                    alert('成功统计')
+                    flag = 1
+                });
+            }
+        }
+        function WriteError(){
+            if (flag == 1)  alert('已统计该次结果，请勿多次提交')
+            else {
+                $.ajax({
+                    url: "/KVwrite/writeError",
+                    context: document.body
+                }).done(function () {
+                    alert('成功统计')
+                    flag = 1
+                });
+            }
+        }
+    </script>
+
+    <div>
+        <form>
+            <input id="infer_one" type="text" >
+            <input id="infer_two" type="text">
+        </form>
+        <h1>SQL语句是否正确</h1>
+        <form action="infer.html" method="GET">
+            <input id="yes" type="button" onclick="WriteCorrect()" value="正确">
+        </form>
+        <form action="infer.html" method="GET">
+            <input id="no" type="button" onclick="WriteError()" value="错误">
+        </form>
+        <form action="/evalution/" method="GET">
+            <button id="count" type="submit"  >查看后台SQL统计结果</button>
+        </form>
+    </div>
 </body>
 </html>

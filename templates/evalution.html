@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/evaluation.css' %}"/>
+</head>
+<body>
+
+    <p style="color: white;text-shadow: 1px 0 10px;text-align: center" >预测准确率为：{{ Accuracy }}</p>
+    <p style="color: white;text-shadow: 1px 0 10px;text-align: center">正确SQL数量：{{ correct }}</p>
+    <p style="color: white;text-shadow: 1px 0 10px;text-align: center">错误SQL数量：{{ error }}</p>
+    <form action="/search-post/" method="get">
+        <button id="back">返回预测界面</button>
+    </form>
+    <form action="/infer/" method="get">
+        <button id="back_infer">返回结果界面</button>
+    </form>
+
+</body>
+</html>
