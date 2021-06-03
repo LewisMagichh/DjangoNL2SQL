@@ -3,21 +3,107 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>后台数据统计</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.3/dist/bootstrap-table.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://unpkg.com/bootstrap-table@1.15.3/dist/bootstrap-table.min.js"></script>
+    <!-- Latest compiled and minified Locales -->
+    <script src="https://unpkg.com/bootstrap-table@1.15.3/dist/locale/bootstrap-table-zh-CN.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/evaluation.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+{#    <link rel="stylesheet" href="{% static 'css/jstable.css' %}" />#}
+
+    <style>
+        body {
+            background-color: #fafafa;
+        }
+
+        .container {
+            margin: 150px auto;
+            max-width: 960px;
+        }
+    </style>
 </head>
 <body>
+    <script src = "/static/js/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/jstable.min.js' %}"></script>
+    <script type="text/javascript">
+        window.onload = function requestData(){
+            $.ajaxSetup({
+                data:{csrfmiddlewaretoken:'{{ csrf_token }}'}
+            })
+            $.ajax({
+                url: "/evalution/showhistory/",
+                type:'post',
+                data:{},
+                success:function (msg){
+                    showdata(msg);
+
+                }
+            })
+        }
+
+        function showdata(msg){
+            var str = "";
+            for(var i = 1;i <= msg.length;i++){
+                str = "<tr><td>" + i + "</td><td>" +
+                    msg[msg.length-i].inferone +"</td><td>" +
+                    msg[msg.length-i].infertwo +"</td><td>" +
+                    msg[msg.length-i].time_history + "</td><tr>";
+                $("#basic").append(str);
+            }
+            new JSTable("#basic");
+        }
+    </script>
 
     <h2 id="acc" style="color: white;text-shadow: 1px 0 10px;text-align: center" >预测准确率为：{{ Accuracy }}</h2>
     <h2 id="cor" style="color: white;text-shadow: 1px 0 10px;text-align: center">正确SQL数量：{{ correct }}</h2>
     <h2 id="err" style="color: white;text-shadow: 1px 0 10px;text-align: center">错误SQL数量：{{ error }}</h2>
 
-    <form action="/search-post/" method="get">
+    <table id="tableval" class="table table-hover" data-toggle="table" data-search="true">
+        <script>
+            $('#tableval').bootstrapTable({
+
+            })
+        </script>
+        <thead>
+            <tr>
+                <th data-field="id">序号</th>
+                <th data-field="No1">预测语句1</th>
+                <th data-field="No2">预测语句2</th>
+                <th data-field="pre_time">预测时间</th>
+            </tr>
+
+        </thead>
+    </table>
+
+{#     <table id="basic" class="table table-bordered table-striped">#}
+{#        <thead>#}
+{#            <tr>#}
+{#                <th>序号</th>#}
+{#                <th>预测语句1</th>#}
+{#                <th>预测语句2</th>#}
+{#                <th>时间</th>#}
+{#            </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{##}
+{#        </tbody>#}
+{#    </table>#}
+
+    <form action="/" method="get">
         <button id="back">返回预测界面</button>
     </form>
+
     <form action="/infer/" method="get">
         <button id="back_infer">返回结果界面</button>
     </form>
+
+
 
 </body>
 </html>

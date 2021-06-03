@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/djangoProject/static/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <script src = "{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'bootstrap-5.0.1-dist/js/bootstrap.min.js' %}"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.3/dist/bootstrap-table.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://unpkg.com/bootstrap-table@1.15.3/dist/bootstrap-table.min.js"></script>
+    <!-- Latest compiled and minified Locales -->
+    <script src="https://unpkg.com/bootstrap-table@1.15.3/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+</head>
+<body>
+
+    <table id="tabble" class="table-hover table" >
+        <script>
+            $('#tabble').bootstrapTable({
+                url: '/evalution/showhistory/',
+                method:'post',
+                striped: true,
+                pagination: true,
+                sortable: false,
+                pageNumber:1,
+                pageSize: 5,
+                pageList: [5,10,15,20,25],
+                search: true,
+                showRefresh: true,
+                columns: [{
+                    field: 'index',
+                    title: '序号'
+                },{
+                    field: 'infer_one',
+                    title: '预测语句1'
+                },{
+                    field: 'infer_two',
+                    title: '预测语句2'
+                },{
+                    field: 'mtime',
+                    title: '预测时间'
+                }]
+            });
+        </script>
+    </table>
+</body>
+</html>

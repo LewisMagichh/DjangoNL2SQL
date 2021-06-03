@@ -1,0 +1,348 @@
+﻿{% load static %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>带分页的表格插件JSTable www.bootstrapmb.com</title>
+ 
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/jstable.css' %}" />
+    <style>
+        body {
+            background-color: #fafafa;
+        }
+
+        .container {
+            margin: 150px auto;
+            max-width: 960px;
+        }
+    </style>
+</head>
+
+<body>
+     <div class="container">
+    
+        
+         <table id="basic" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>Date</th>
+                    <th>Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Rhona Carey</td>
+                    <td>Northern Mariana Islands</td>
+                    <td>2020-03-12 03:47:43</td>
+                    <td>9761</td>
+                </tr>
+                <tr>
+                    <td>Ria Sherman</td>
+                    <td>Denmark</td>
+                    <td>2019-07-16 18:36:14</td>
+                    <td>7472</td>
+                </tr>
+                <tr>
+                    <td>Hoyt Delgado</td>
+                    <td>Tajikistan</td>
+                    <td>2019-11-26 15:47:50</td>
+                    <td>7470</td>
+                </tr>
+                <tr>
+                    <td>Bernard Murray</td>
+                    <td>Sint Maarten</td>
+                    <td>2019-09-25 21:14:41</td>
+                    <td>2793</td>
+                </tr>
+                <tr>
+                    <td>Arden House</td>
+                    <td>Armenia</td>
+                    <td>2019-01-08 09:02:02</td>
+                    <td>9055</td>
+                </tr>
+                <tr>
+                    <td>Nina Ferrell</td>
+                    <td>Palau</td>
+                    <td>2019-09-17 08:16:39</td>
+                    <td>5120</td>
+                </tr>
+                <tr>
+                    <td>Glenna Shannon</td>
+                    <td>Malta</td>
+                    <td>2019-09-30 03:22:10</td>
+                    <td>5166</td>
+                </tr>
+                <tr>
+                    <td>Erica Grant</td>
+                    <td>Saint Kitts and Nevis</td>
+                    <td>2019-11-12 02:18:39</td>
+                    <td>1025</td>
+                </tr>
+                <tr>
+                    <td>Simon Cardenas</td>
+                    <td>Cayman Islands</td>
+                    <td>2019-08-25 11:31:53</td>
+                    <td>2766</td>
+                </tr>
+                <tr>
+                    <td>Joy Brennan</td>
+                    <td>Ireland</td>
+                    <td>2019-05-18 01:31:41</td>
+                    <td>9680</td>
+                </tr>
+                <tr>
+                    <td>Kennedy Arnold</td>
+                    <td>Uganda</td>
+                    <td>2019-08-18 12:37:04</td>
+                    <td>3043</td>
+                </tr>
+                <tr>
+                    <td>Baxter Rutledge</td>
+                    <td>Faroe Islands</td>
+                    <td>2018-08-08 19:03:44</td>
+                    <td>2476</td>
+                </tr>
+                <tr>
+                    <td>Willa Cook</td>
+                    <td>Micronesia</td>
+                    <td>2019-04-24 17:16:02</td>
+                    <td>1026</td>
+                </tr>
+                <tr>
+                    <td>Sara Fleming</td>
+                    <td>New Caledonia</td>
+                    <td>2019-09-27 06:48:17</td>
+                    <td>3981</td>
+                </tr>
+                <tr>
+                    <td>Whilemina Whitfield</td>
+                    <td>Sri Lanka</td>
+                    <td>2018-08-30 20:05:14</td>
+                    <td>9917</td>
+                </tr>
+                <tr>
+                    <td>Tiger Powell</td>
+                    <td>Laos</td>
+                    <td>2018-11-15 21:26:51</td>
+                    <td>7933</td>
+                </tr>
+                <tr>
+                    <td>Maya Powers</td>
+                    <td>Kenya</td>
+                    <td>2019-03-21 08:48:02</td>
+                    <td>3199</td>
+                </tr>
+                <tr>
+                    <td>Kermit Campbell</td>
+                    <td>Cambodia</td>
+                    <td>2019-06-29 03:47:03</td>
+                    <td>6323</td>
+                </tr>
+                <tr>
+                    <td>Kennedy Sears</td>
+                    <td>Thailand</td>
+                    <td>2019-01-13 05:29:01</td>
+                    <td>8502</td>
+                </tr>
+                <tr>
+                    <td>Aristotle Gallagher</td>
+                    <td>Sao Tome and Principe</td>
+                    <td>2019-04-14 13:28:58</td>
+                    <td>5982</td>
+                </tr>
+                <tr>
+                    <td>Rahim Ortega</td>
+                    <td>Haiti</td>
+                    <td>2019-05-15 02:45:11</td>
+                    <td>4386</td>
+                </tr>
+                <tr>
+                    <td>Abigail Conway</td>
+                    <td>Wallis and Futuna</td>
+                    <td>2018-11-28 02:09:58</td>
+                    <td>4243</td>
+                </tr>
+                <tr>
+                    <td>Calvin Harding</td>
+                    <td>Switzerland</td>
+                    <td>2019-01-26 02:41:56</td>
+                    <td>9560</td>
+                </tr>
+                <tr>
+                    <td>Nissim Owen</td>
+                    <td>South Africa</td>
+                    <td>2019-05-18 22:24:41</td>
+                    <td>2985</td>
+                </tr>
+                <tr>
+                    <td>Edan Oneill</td>
+                    <td>Sweden</td>
+                    <td>2018-11-25 07:18:01</td>
+                    <td>3439</td>
+                </tr>
+                <tr>
+                    <td>Simon Reese</td>
+                    <td>Lesotho</td>
+                    <td>2019-05-09 14:24:04</td>
+                    <td>8611</td>
+                </tr>
+                <tr>
+                    <td>Kylee Herrera</td>
+                    <td>Kazakhstan</td>
+                    <td>2020-03-28 06:08:52</td>
+                    <td>8434</td>
+                </tr>
+                <tr>
+                    <td>Melvin Stafford</td>
+                    <td>Bonaire, Sint Eustatius and Saba</td>
+                    <td>2018-09-17 10:39:37</td>
+                    <td>9539</td>
+                </tr>
+                <tr>
+                    <td>Regan Allen</td>
+                    <td>Greenland</td>
+                    <td>2020-01-13 15:54:15</td>
+                    <td>8614</td>
+                </tr>
+                <tr>
+                    <td>Castor Kelley</td>
+                    <td>Cameroon</td>
+                    <td>2019-05-19 11:11:10</td>
+                    <td>1703</td>
+                </tr>
+                <tr>
+                    <td>Hamilton Durham</td>
+                    <td>Bulgaria</td>
+                    <td>2019-06-22 09:46:17</td>
+                    <td>6432</td>
+                </tr>
+                <tr>
+                    <td>Carl Burch</td>
+                    <td>Bouvet Island</td>
+                    <td>2020-04-08 07:09:33</td>
+                    <td>4149</td>
+                </tr>
+                <tr>
+                    <td>Hiroko Finley</td>
+                    <td>Nigeria</td>
+                    <td>2020-02-11 07:20:14</td>
+                    <td>2620</td>
+                </tr>
+                <tr>
+                    <td>Fatima Miles</td>
+                    <td>Libya</td>
+                    <td>2020-06-12 19:04:07</td>
+                    <td>5222</td>
+                </tr>
+                <tr>
+                    <td>Sylvia Lane</td>
+                    <td>Dominican Republic</td>
+                    <td>2019-08-06 01:30:45</td>
+                    <td>1857</td>
+                </tr>
+                <tr>
+                    <td>Maggie Sawyer</td>
+                    <td>Åland Islands</td>
+                    <td>2019-12-01 23:56:22</td>
+                    <td>2825</td>
+                </tr>
+                <tr>
+                    <td>Dominique Lang</td>
+                    <td>Nigeria</td>
+                    <td>2019-07-30 00:11:31</td>
+                    <td>1829</td>
+                </tr>
+                <tr>
+                    <td>Wayne Shepherd</td>
+                    <td>Singapore</td>
+                    <td>2019-12-02 14:16:56</td>
+                    <td>1289</td>
+                </tr>
+                <tr>
+                    <td>Oren Wiley</td>
+                    <td>Northern Mariana Islands</td>
+                    <td>2020-01-21 01:23:54</td>
+                    <td>8272</td>
+                </tr>
+                <tr>
+                    <td>Hayden Dale</td>
+                    <td>Sierra Leone</td>
+                    <td>2019-10-18 09:36:02</td>
+                    <td>6573</td>
+                </tr>
+                <tr>
+                    <td>Rhona Mullen</td>
+                    <td>Côte D'Ivoire (Ivory Coast)</td>
+                    <td>2018-09-06 19:06:03</td>
+                    <td>8237</td>
+                </tr>
+                <tr>
+                    <td>Hector Hamilton</td>
+                    <td>Mauritania</td>
+                    <td>2018-08-30 14:08:34</td>
+                    <td>8929</td>
+                </tr>
+                <tr>
+                    <td>Edan Sexton</td>
+                    <td>French Southern Territories</td>
+                    <td>2020-05-25 18:01:10</td>
+                    <td>6034</td>
+                </tr>
+                <tr>
+                    <td>Rhea Monroe</td>
+                    <td>Syria</td>
+                    <td>2018-10-23 13:11:54</td>
+                    <td>7473</td>
+                </tr>
+                <tr>
+                    <td>Emerald Clay</td>
+                    <td>Martinique</td>
+                    <td>2020-02-28 19:11:24</td>
+                    <td>9108</td>
+                </tr>
+                <tr>
+                    <td>Griffin Dillon</td>
+                    <td>Saudi Arabia</td>
+                    <td>2018-11-07 16:43:16</td>
+                    <td>5947</td>
+                </tr>
+                <tr>
+                    <td>Autumn Clay</td>
+                    <td>Laos</td>
+                    <td>2020-03-14 07:57:07</td>
+                    <td>5049</td>
+                </tr>
+                <tr>
+                    <td>Rahim Vance</td>
+                    <td>Samoa</td>
+                    <td>2020-05-03 05:32:40</td>
+                    <td>5926</td>
+                </tr>
+                <tr>
+                    <td>Hammett Levine</td>
+                    <td>Martinique</td>
+                    <td>2020-01-06 00:53:12</td>
+                    <td>5589</td>
+                </tr>
+                <tr>
+                    <td>Yardley Fisher</td>
+                    <td>Sierra Leone</td>
+                    <td>2018-09-04 04:05:40</td>
+                    <td>3460</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ 
+    <script src="assets/jstable.min.js"></script>
+    <script>
+        new JSTable("#basic");
+    </script>
+   
+</body>
+</html>

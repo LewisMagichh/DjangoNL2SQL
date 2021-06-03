@@ -11,4 +11,5 @@ def evalution(request):
         f.close()
     Accuracy = dic['correct']/(dic['correct'] + dic['error'])
     Accuracy = "%.4f%%" % (Accuracy * 100)
+
     return render(request,"evalution.html",{"Accuracy":Accuracy,"correct":dic['correct'],"error":dic['error']})

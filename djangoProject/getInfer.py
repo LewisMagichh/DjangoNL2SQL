@@ -3,7 +3,7 @@ import sys
 import json
 import jsonlines
 from djangoProject.settings import BASE_DIR
-
+from djangoProject.Restored import restored
 
 def get_infer():
     dir_path = os.path.join(BASE_DIR, 'djangoProject/nltsql/logdir/glove_run/bs=20,lr=7.4e-04,end_lr=0e0,att=0/ie_dirs')
@@ -17,5 +17,5 @@ def get_infer():
                 hasInferred[i] = item['beams'][0]['inferred_code']
                 i+=1
         f.close()
-
+    restored(hasInferred[0],hasInferred[2])
     return hasInferred

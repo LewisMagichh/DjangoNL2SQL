@@ -20,13 +20,14 @@ from . import search
 from . import KVwrite
 from . import Evalution
 from . import utils
+from . import Restored
 urlpatterns = [
-    path('search/',search.search),
-    path('search-post/',search.search_post),
     path('infer/',search.inferlist),
     path('KVwrite/writeCorrect/',KVwrite.write_correct),
     path('KVwrite/writeError/',KVwrite.write_error),
     path('evalution/',Evalution.evalution),
     path('',search.index),
-    path('index/myaudio/',utils.my_record)
+    path('index/myaudio/',utils.my_record),
+    path('evalution/showhistory/',Restored.showstoreddata),
+    path('bs-table/',Restored.tabled)
 ]

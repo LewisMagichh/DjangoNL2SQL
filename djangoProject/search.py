@@ -9,8 +9,8 @@ from .preproc import proprection
 from .InitFile import init_file
 from .getInfer import get_infer
 from .KVwrite import write_error,write_correct
-def search_form(request):
-    return render(request, 'searchpost.html')
+def index(request):
+    return render(request, 'index.html')
 
 def search(request):
     request.encoding='utf-8'
@@ -28,8 +28,7 @@ def search(request):
     return HttpResponse(message)
 
 def search_post(request):
-    ctx={}
-    init_file()
+
     # if request.POST:
     #     input_dbid = request.POST['db_id']
     #     input_question = request.POST['question']
@@ -39,11 +38,12 @@ def search_post(request):
     #     proprection()
     #     ctx['params'] = get_infer()
 
-    return render(request, "searchpost.html", ctx)
+    return render(request, "searchpost.html")
 
 
 def inferlist(request):
     if request.POST:
+        init_file()
         input_dbid = request.POST['db_id']
         input_question = request.POST['question']
 
